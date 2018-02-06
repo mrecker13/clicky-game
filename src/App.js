@@ -4,6 +4,8 @@ import Title from "./components/Title/Title";
 import Wrapper from "./components/Wrapper/Wrapper";
 import Card from "./components/Cards/Cards";
 import cards from "./cards.json";
+import Col from "./components/Col/Col";
+import Row from "./components/Row/Row";
 import './App.css';
 
 class App extends Component {
@@ -66,7 +68,9 @@ class App extends Component {
         />
         <Title />
         <div className="container">
+          <Row>
           {this.state.cards.map(card => (
+            <Col size="md-3">
             <Card
               key = {card.id}
               id = {card.id}
@@ -74,7 +78,9 @@ class App extends Component {
               image = {card.image}
               selectCard = {this.hasBeenChosen}
             />
+            </Col>
           ))}
+          </Row>
         </div>
       </Wrapper>
     )
