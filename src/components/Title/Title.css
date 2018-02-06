@@ -1,0 +1,8 @@
+.jumbotron {
+    text-align: center;
+    height: 400px;
+    padding-top: 150px;
+    background-image: url("http://i.imgur.com/HXYIDoB.png");
+    color: white;
+    font-family: serif;
+}
