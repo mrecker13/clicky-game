@@ -1,0 +1,12 @@
+li {
+    color: lightgray;
+    width: 33.3%;
+}
+
+.instructions {
+    text-align: center;
+}
+
+.scoreDisplay {
+    float: right;
+}
