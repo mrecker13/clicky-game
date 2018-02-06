@@ -20,6 +20,7 @@ class App extends Component {
       this.setState({currentScore: this.state.currentScore + 1})
       this.handleScore();
       this.winGame();
+      this.shuffle(this.state.cards);
     }
     else {
       alert("you got it wrong!");
@@ -27,6 +28,7 @@ class App extends Component {
         selectedArray: [],
         currentScore: 0
       });
+      this.shuffle(this.state.cards);
     }
   }
   
@@ -47,6 +49,14 @@ class App extends Component {
     }
   }
 
+  shuffle = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
   render() {
     return (
       <Wrapper>
@@ -55,15 +65,17 @@ class App extends Component {
           topScore = {this.state.topScore}
         />
         <Title />
-        {this.state.cards.map(card => (
-          <Card
-            key = {card.id}
-            id = {card.id}
-            name = {card.name}
-            image = {card.image}
-            selectCard = {this.hasBeenChosen}
-          />
-        ))}
+        <div className="container">
+          {this.state.cards.map(card => (
+            <Card
+              key = {card.id}
+              id = {card.id}
+              name = {card.name}
+              image = {card.image}
+              selectCard = {this.hasBeenChosen}
+            />
+          ))}
+        </div>
       </Wrapper>
     )
   }
